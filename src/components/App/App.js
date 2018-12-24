@@ -26,7 +26,8 @@ class App extends Component {
     this.getElements();
   }
 
-  handleClick = () => {
+  handleSubmit = (event) => {
+    event.preventDefault();
     axios.post('/api/element', this.state).then(() => {
       this.getElements();
       this.setState({
@@ -44,8 +45,10 @@ class App extends Component {
       <div>
         <button onClick={() => this.props.dispatch({ type: 'BUTTON_ONE' })}>Button One</button>
         <button onClick={() => this.props.dispatch({ type: 'BUTTON_TWO' })}>Button Two</button>
-        <input value={this.state.newElement} onChange={this.handleChange} />
-        <button onClick={this.handleClick}>Add Element</button>
+        <form onSubmit={this.handleSubmit}>
+          <input value={this.state.newElement} onChange={this.handleChange} />
+          <input type='submit' value='Add Element' />
+        </form>
         <pre>{JSON.stringify(this.props.reduxState)}</pre>
       </div>
     );
