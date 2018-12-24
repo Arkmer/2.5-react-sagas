@@ -2,7 +2,7 @@
   "name": "redux-intro",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:5000",
+  "proxy": "http://localhost:5001",
   "dependencies": {
     "axios": "^0.18.0",
     "express": "^4.16.3",
@@ -15,7 +15,7 @@
     "redux-saga": "^0.16.0"
   },
   "scripts": {
-    "start": "react-scripts build && node server/server.js",
+    "start": "PORT=3000 react-scripts start",
     "dev": "npm run dev:server | npm run dev:client",
     "client": "react-scripts start",
     "server": "nodemon server/server.js",

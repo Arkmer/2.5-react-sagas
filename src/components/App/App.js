@@ -16,10 +16,10 @@ class App extends Component {
   getElements = () => {
     axios.get('/api/element').then(response => {
       this.props.dispatch({ type: 'SET_ELEMENTS', payload: response.data });
-  })
-  .catch(error => {
-      console.log('error with element get request', error);
-  });
+    })
+      .catch(error => {
+        console.log('Element GET', error);
+      });
   }
 
   componentDidMount() {
@@ -28,16 +28,16 @@ class App extends Component {
 
   handleClick = () => {
     axios.post('/api/element', this.state).then(() => {
-        this.getElements();
-        this.setState({
-          newElement: '',
+      this.getElements();
+      this.setState({
+        newElement: '',
       });
     })
-    .catch(error => {
-        console.log('error with element get request', error);
-    });
-    
-}
+      .catch(error => {
+        console.log('Element POST', error);
+      });
+
+  }
 
   render() {
     return (
@@ -53,7 +53,7 @@ class App extends Component {
 }
 
 const mapReduxStateToProps = reduxState => ({
-    reduxState
+  reduxState
 });
 
 export default connect(mapReduxStateToProps)(App);
