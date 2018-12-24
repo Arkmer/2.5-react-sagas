@@ -17,9 +17,9 @@ class App extends Component {
     axios.get('/api/element').then(response => {
       this.props.dispatch({ type: 'SET_ELEMENTS', payload: response.data });
     })
-      .catch(error => {
-        console.log('Element GET', error);
-      });
+    .catch(error => {
+      console.log('Element GET', error);
+    });
   }
 
   componentDidMount() {
@@ -34,10 +34,9 @@ class App extends Component {
         newElement: '',
       });
     })
-      .catch(error => {
-        console.log('Element POST', error);
-      });
-
+    .catch(error => {
+      console.log('Element POST', error);
+    });
   }
 
   render() {
