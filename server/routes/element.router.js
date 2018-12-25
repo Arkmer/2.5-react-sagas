@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   elementList.push(req.body.newElement);
-  console.log('New:', req.body.newElement)
+  console.log('New:', req.body.newElement);
   res.sendStatus(200);
 });
 

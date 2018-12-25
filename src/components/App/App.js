@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+// import { createCipher } from 'crypto';
+// import { call, put } from 'redux-saga/effects';
 
 class App extends Component {
   state = {
@@ -14,12 +16,7 @@ class App extends Component {
   }
 
   getElements = () => {
-    axios.get('/api/element').then(response => {
-      this.props.dispatch({ type: 'SET_ELEMENTS', payload: response.data });
-    })
-    .catch(error => {
-      console.log('Element GET', error);
-    });
+    this.props.dispatch({ type: 'FETCH_ELEMENTS' })
   }
 
   componentDidMount() {
@@ -36,8 +33,8 @@ class App extends Component {
     })
     .catch(error => {
       console.log('Element POST', error);
-    });
-  }
+    })
+  };
 
   render() {
     return (
